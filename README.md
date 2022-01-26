@@ -5,8 +5,7 @@
 </center>
 </dl>
 
-
-En este proyecto se ha importado un data set de [Kaggle](https://www.kaggle.com/teajay/global-shark-attacks) sobre muertes de tiburón para obtener conclusiones sobre la evolución de muertes por tiburón a lo largo del tiempo y la influencia del sexo de la víctima y la actividad realizada
+En este proyecto se ha importado un data set de [Kaggle](https://www.kaggle.com/teajay/global-shark-attacks) sobre muertes de tiburón. Las hipótesis son: es el suf el deporte más peligroso en relacion a los accidentes por tiburón y el número de muertes por tiburón en función del número de casos ha disminuido en los últimos años.
 ***
 ## Método
 1. Descarga e importación del .csv como pandas data frame.
