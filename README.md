@@ -1,5 +1,10 @@
 # Data-cleaning-pandas
-![gif](https://c.tenor.com/q4xhISzHE6MAAAAC/buscando-a-nemo.gif)
+<dl>
+  <center>
+  <img src="https://c.tenor.com/q4xhISzHE6MAAAAC/buscando-a-nemo.gif" alt="Gif">   
+</center>
+</dl>
+
 
 En este proyecto se ha importado un data set de [Kaggle](https://www.kaggle.com/teajay/global-shark-attacks) sobre muertes de tiburón para obtener conclusiones sobre la evolución de muertes por tiburón a lo largo del tiempo y la influencia del sexo de la víctima y la actividad realizada
 ***
