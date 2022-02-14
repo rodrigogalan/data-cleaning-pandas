@@ -5,12 +5,15 @@
 </center>
 </dl>
 
-En este proyecto se ha importado un data set de [Kaggle](https://www.kaggle.com/teajay/global-shark-attacks) sobre muertes de tiburón. Las hipótesis son: es el suf el deporte más peligroso en relacion a los accidentes por tiburón y el número de muertes por tiburón en función del número de casos ha disminuido en los últimos años.
+En este proyecto se ha importado un data set de [Kaggle](https://www.kaggle.com/teajay/global-shark-attacks) sobre muertes de tiburón. Las hipótesis son:
+1. El suf el deporte más peligroso en relacion a los accidentes por tiburón 
+2. El número de muertes por tiburón en función del número de casos ha disminuido en los últimos años.
+
 ***
 ## Método
 1. Descarga e importación del .csv como pandas data frame.
 2. Exploración de los datos y limpieza rápida eliminando aquellas filas y columnas sin información.
-3. Limpieza detallada de las columnas útiles empleando el archivo auxiliar de funciones y exportación de los datos.
+3. Limpieza detallada de las columnas útiles empleando el archivo auxiliar de funciones y exportación de los datos para ello se ha usado un csv auxiliar [paises.csv](https://gist.github.com/brenes/1095110/4422fd7ba3a388f31a9a017757e21e5df23c5916).
 4. Visualización de los datos para la obtención de conclusiones.
 
 ## Documentos
@@ -23,9 +26,9 @@ En este proyecto se ha importado un data set de [Kaggle](https://www.kaggle.com/
 * src/cleaning_functions.py: funciones auxiliares de limpieza
 
 ## Librerias
-* [re](https://github.com/python/cpython/blob/3.10/Lib/re.py) 
+* [re](https://docs.python.org/3/library/re.html) 
 * [numpy](https://numpy.org/doc/1.22/)
 * [pandas](https://pandas.pydata.org/pandas-docs/stable/) 
-* [sys](https://github.com/python/cpython/blob/3.10/Doc/library/sys.rst)
-* [plotly.express](https://github.com/plotly/plotly.py)
+* [sys](https://docs.python.org/3/library/sys.html)
+* [plotly.express](https://plotly.com/python-api-reference/)
 
