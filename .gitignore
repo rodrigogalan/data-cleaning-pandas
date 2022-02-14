@@ -1,6 +1,6 @@
-/data/attacks
-/data/sharks_limpio
-/data/sharks_limpio_raw
+/data/attacks.csv
+/data/sharks_limpio.csv
+/data/sharks_limpio_raw.csv
 **/.DS_Store
 **/*.ipynb_checkpoints/
 **/__pycache__
