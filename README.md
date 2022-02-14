@@ -24,7 +24,7 @@ En este proyecto se ha importado un data set de [Kaggle](https://www.kaggle.com/
 * [data/shark_attacks.csv](https://github.com/rodrigogalan/data-cleaning-pandas/blob/main/data/shark_attacks.csv): datos limpios
 * [data/paises.csv](https://github.com/rodrigogalan/data-cleaning-pandas/blob/main/data/paises.csv): nombres de paises
 ### Functions
-* s[rc/cleaning_functions.py](https://github.com/rodrigogalan/data-cleaning-pandas/blob/main/src/cleaning_functions.py): funciones auxiliares de limpieza
+* [src/cleaning_functions.py](https://github.com/rodrigogalan/data-cleaning-pandas/blob/main/src/cleaning_functions.py): funciones auxiliares de limpieza
 
 ## Librerias
 * [re](https://docs.python.org/3/library/re.html) 
