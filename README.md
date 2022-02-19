@@ -31,5 +31,7 @@ En este proyecto se ha importado un data set de [Kaggle](https://www.kaggle.com/
 * [numpy](https://numpy.org/doc/1.22/)
 * [pandas](https://pandas.pydata.org/pandas-docs/stable/) 
 * [sys](https://docs.python.org/3/library/sys.html)
-* [plotly.express](https://plotly.com/python-api-reference/)
+* [plotly](https://plotly.com/python-api-reference/)
+* [IPython](https://ipython.readthedocs.io/en/stable/)
+* [matplotlib](https://devdocs.io/matplotlib~3.1/)
 
