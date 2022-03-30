@@ -17,8 +17,8 @@ En este proyecto se ha importado un data set de [Kaggle](https://www.kaggle.com/
 
 ## Documentos
 ### Jupyter notebooks
-* [1.clean.ipynb](https://github.com/rodrigogalan/data-cleaning-pandas/blob/main/code/1.clean.ipynb): importación de datos y limpieza
-* [2.analysis.ipynb](https://github.com/rodrigogalan/data-cleaning-pandas/blob/main/code/2.analysis.ipynb): visulización de datos
+* [1.clean.ipynb](https://github.com/rodrigogalan/data-cleaning-pandas/blob/main/1.clean.ipynb): importación de datos y limpieza
+* [2.analysis.ipynb](https://github.com/rodrigogalan/data-cleaning-pandas/blob/main/2.analysis.ipynb): visulización de datos
 ### Data
 * [data/shark_attacks.csv](https://github.com/rodrigogalan/data-cleaning-pandas/blob/main/data/shark_attacks.csv): datos limpios
 * [data/paises.csv](https://github.com/rodrigogalan/data-cleaning-pandas/blob/main/data/paises.csv): nombres de paises
@@ -30,5 +30,7 @@ En este proyecto se ha importado un data set de [Kaggle](https://www.kaggle.com/
 * [numpy](https://numpy.org/doc/1.22/)
 * [pandas](https://pandas.pydata.org/pandas-docs/stable/) 
 * [sys](https://docs.python.org/3/library/sys.html)
-* [plotly.express](https://plotly.com/python-api-reference/)
+* [plotly](https://plotly.com/python-api-reference/)
+* [IPython](https://ipython.readthedocs.io/en/stable/)
+* [matplotlib](https://devdocs.io/matplotlib~3.1/)
 
