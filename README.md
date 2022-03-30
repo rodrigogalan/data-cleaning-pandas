@@ -1,9 +1,8 @@
 # Data-cleaning-pandas
-<dl>
-  <center>
-  <img src="https://c.tenor.com/q4xhISzHE6MAAAAC/buscando-a-nemo.gif" alt="Gif">   
-</center>
-</dl>
+
+<div align=center>
+    <img src="https://c.tenor.com/q4xhISzHE6MAAAAC/buscando-a-nemo.gif" alt="Gif">   
+</div>
 
 En este proyecto se ha importado un data set de [Kaggle](https://www.kaggle.com/teajay/global-shark-attacks) sobre muertes de tiburón. Las hipótesis son:
 1. El surf el deporte más peligroso en relacion a los accidentes por tiburón 
