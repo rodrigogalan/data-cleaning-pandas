@@ -29,8 +29,9 @@ def limpieza_sex(x):
 
 
 def limpieza_year(x):
-    if type(x) == float and x > 500:
-        return int(x)
+    if type(x) == float and x > 1700:
+        x=int(x)
+        return str(x)
     else:
         return np.nan
 
@@ -48,31 +49,28 @@ pattern_time = "\d{1,2}"
 def limpieza_time(x):
     x = str(x).lower()
     if "afternoon" in x or "afternon" in x:
-        return random.randint(12, 19)
+        return str(random.randint(12, 19))
     elif "morning" in x:
-        return random.randint(7, 12)
+        return str(random.randint(7, 12))
     elif "a.m" in x or "am" in x:
-        return random.randint(0,12)
+        return str(random.randint(0,12))
     elif "p.m" in x or "pm" in x:
-        return random.randint(13,23)
+        return str(random.randint(13,23))
     elif "midnight" in x:
-        return random.choice([23,0,1])
+        return str(random.choice([23,0,1]))
     elif "night" in x or "dusk" in x:
-        return random.choice([18,19,20,21,22,23,0,1,2,3,4,5,6])
+        return str(random.choice([18,19,20,21,22,23,0,1,2,3,4,5,6]))
     elif "lunchtime" in x or "midday" in x or "noon" in x:
-        return random.randint(11,14)
+        return str(random.randint(11,14))
     elif "evening" in x:
-        return random.randint(19, 23)
+        return str(random.randint(19, 23))
     elif "sunset" in x:
-        return random.randint(16, 20)
+        return str(random.randint(16, 20))
     elif len(re.findall(pattern_time,x)) != 0:
         time = int(re.findall(pattern_time,x)[0])
         if time < 24:
-            return time
-        else:
-            return np.nan
-    else:
-        return np.nan
+            return str(time)
+    return np.nan
 
 
 def limpieza_type(x):
@@ -94,9 +92,9 @@ def limpieza_meses(x):
     x = str(x)
     for i in range(12):
         if meses[i] in x.lower():
-            return i+1
-    else:
-        return np.nan
+            if i <9:return "0"+str(i+1)
+            else: return str(i+1)
+    return np.nan
 
 
 pattern_dias1 = "\d{1,2}-"
@@ -105,82 +103,67 @@ def limpieza_dias(x):
     x = str(x)
     if len(re.findall(pattern_dias1,x)) != 0:
         day = int(re.findall(pattern_dias1,x)[0][:-1])
-        if day < 32:
-            return day
+        if day<10 and day>0:
+            return "0"+str(day)
+        if day<32 and day>9:
+            return str(day)
         else:
             return np.nan
     elif len(re.findall(pattern_dias2,x)) != 0:
         day = int(re.findall(pattern_dias2,x)[0][1:3])
-        if day<32 and day>0:
-            return day
+        if day<10 and day>0:
+            return "0"+str(day)
+        if day<32 and day>9:
+            return str(day)
         else:
             return np.nan
     else:
         return np.nan
 
 
+species_dict={
+    "whitetip" : "whitetip reef shark",
+    "whtietip" : "whitetip reef shark",
+    "white" : "white shark",
+    "bull" : "bull shark",
+    "sandtiger" : "bull shark",
+    "tiger" : "tiger shark",
+    "lemon" : "lemon shark",
+    "nurse" : "nurse shark",
+    "caribbean" : "caribbean reef shark",
+    "blacktip" : "blacktip reef shark",
+    "blacktail" : "blacktip reef shark",
+    "grey" : "grey reef shark",
+    "gray" : "grey reef shark",
+    "wobbegong" : "wobbegong shark",
+    "blue" : "blue shark",
+    "cookiecutter" : "cookiecutter shark",
+    "spinner":"spinner shark",
+    "sner" : "sner shark",
+    "porbeagle" : "porbeagle shark",
+    "galapagos" : "galapagos shark",
+    "hammerhead" : "hammerhead shark",
+    "mako" : "mako shark",
+    "raggedtooth" : "raggedtooth shark",
+    "gob" : "gob shark",
+    "sandbar" : "sandbar shark",
+    "whaler" : "bronze whaler shark",
+    "dogfish" : "dogfish shark",
+    "angel" : "angel shark",
+    "silky" : "silky shark",
+    "zambesi" : "zambesi shark",
+    "salmon" : "salmon shark",
+    "sevengill " : "sevengill  shark"
+}
+
 def limpieza_species(x):
+    if x != x:
+        return np.nan
     x = str(x).lower()
-    if "whitetip" in x or "whtietip" in x:
-        return "whitetip reef shark"
-    elif "white" in x:
-        return "white shark"
-    elif "bull" in x or "sandtiger" in x:
-        return "bull shark"
-    elif "tiger" in x:
-        return "tiger shark"
-    elif "lemon" in x:
-        return "lemon shark"
-    elif "nurse" in x:
-        return "nurse shark"
-    elif "caribbean" in x:
-        return "caribbean reef shark"
-    elif "blacktip" in x or "blacktail" in x:
-        return "blacktip reef shark"
-    elif "grey" in x or "gray" in x:
-        return "grey reef shark"
-    elif "wobbegong" in x:
-        return "wobbegong shark"
-    elif "blue" in x:
-        return "blue shark"
-    elif "nan" == x:
-        return np.nan
-    elif "unconfirmed" in x or "confirmed" in x or "questionable" in x or "no " in x or "not " in x:
-        return np.nan
-    elif "cookiecutter" in x:
-        return "cookiecutter shark"
-    elif "spinner" in x:
-        return "spinner shark"
-    elif "porbeagle" in x:
-        return "porbeagle shark"
-    elif "galapagos" in x:
-        return "galapagos shark"
-    elif "hammerhead" in x:
-        return "hammerhead shark"
-    elif "mako" in x:
-        return "mako shark"
-    elif "raggedtooth" in x:
-        return "raggedtooth shark"
-    elif "goblin" in x:
-        return "goblin shark"
-    elif "sandbar" in x:
-        return "sandbar shark"
-    elif "whaler" in x:
-        return "bronze whaler shark"
-    elif "dogfish" in x:
-        return "dogfish shark"
-    elif "angel" in x:
-        return "angel shark"
-    elif "silky" in x:
-        return "silky shark"
-    elif "zambesi" in x:
-        return "zambesi shark"
-    elif "salmon" in x:
-        return "salmon shark"
-    elif "sevengill " in x:
-        return "sevengill  shark"
-    else:
-        return np.nan
+    for e in species_dict.keys():
+        if e in x:
+            return species_dict[e]    
+    return np.nan
 
 
 def limpieza_injury(x):
@@ -206,55 +189,70 @@ def quitar_acentos(palabra):
     for a, b in cambios:
         palabra = palabra.replace(a, b).replace(a.upper(), b.upper())
     return palabra
-
+    
 
 path = "./data/paises.csv"
 paises = pd.read_csv(path,encoding='utf-8')
 list_paises=paises[" name"].tolist()
 list_paises=list(map(quitar_acentos,list_paises))
+
+country_dict={
+    "Usa":"United States of America",
+    "England":"United Kingdom",
+    "Columbia":"Colombia",
+    "Scotland":"United Kingdom",
+    "Okinawa":"Japan"
+}
+
 def limpieza_country(x):
     if x!=x:
         return np.nan
     x = str(x).lower().title().strip()
-    if x!=x:
-        return np.nan
-    if "Usa" == x:
-        x = "United States of America"
-    if x == "England":
-        x = "United Kingdom"
-    if x == "Columbia":
-        x = "Colombia"
-    if x == "Scotland":
-        x = "United Kingdom"
-    if x == "Okinawa":
-        x = "Japan"
+    for e in country_dict.keys():
+        if e == x:
+            x = country_dict[e]
     if x not in list_paises:
         return np.nan
     else:
         return x
 
-
+activity_dict = {
+    "swimming":"swimming",
+    "fishing":"fishing",
+    "diving":"diving",
+    "snorkel":"diving",
+    "surf":"surf",
+    "body boarding":"surf",
+    "body-boarding":"surf",
+    "boogie boarding":"surf",
+    "paddleskiing":"surf",
+    "bathing":"bathing",
+    "floating":"bathing",
+    "splashing":"bathing",
+    "jumped into the water":"bathing",
+    "playing":"bathing",
+    "wading":"wading",
+    "walking":"wading",
+    "treading water":"wading",
+    "standing":"standing",
+    "kayaking":"boating",
+    "ship":"boating",
+    "sail":"boating",
+    "boat":"boating",
+    "canoeing":"boating",
+    "board":"boating",
+    "rowing":"boating",
+    "fell into the water":"boating",
+    "sea disaster":"sea disaster"
+    }
+    
 def limpieza_activity(x):
     if x != x:
         return np.nan
     x = str(x).lower().strip()
-    if "swimming" in x:
-        return "swimming"
-    elif "fishing" in x:
-        return "fishing"
-    elif "diving" in x or "snorkel" in x:
-        return "diving"
-    elif "surf" in x or "body boarding" in x or "body-boarding" in x or "boogie boarding" in x or "paddleskiing" in x:
-        return "surf"
-    elif "bathing" in x or "floating" in x or "splashing" in x or "jumped into the water" in x or "playing" in x:
-        return "bathing"
-    elif "wading" in x or "walking" in x or "treading water" in x:
-        return "wading"
-    elif "standing" in x:
-        return "standing"
-    elif "kayaking" in x or "ship" in x or "sail" in x or "boat" in x or "canoeing" in x or "board" in x or "rowing" in x or "fell into the water" in x:
-        return "boating"
-    elif "sea disaster" in x:
-        return "sea disaster"
-    else:
-        return np.nan
+    for e in activity_dict.keys():
+        if e in x:
+            return activity_dict[e]
+    return np.nan
+
+
