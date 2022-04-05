@@ -2,6 +2,42 @@ import re
 import numpy as np
 import pandas as pd
 import random
+from datetime import datetime, timedelta
+
+
+def todatetime(x):
+    if x != x:
+        return np.nan
+    try: return datetime.strptime(x,"%d-%b-%Y")
+    except: return np.nan
+
+
+def limpieza_year(x):
+    if type(x) == float and x > 1700:
+        x=int(x)
+        return str(x)
+    else:
+        return np.nan
+
+
+def limpieza_date1(x):
+    if x != x:
+        return np.nan
+    x=str(x).replace(".", "-").replace(",","-")
+    if x.split("-")[0].isdigit() and int(x.split("-")[0]) < 1700:
+        return np.nan
+    y=""
+    for e in x:
+        if e.isdigit() or e=="-":
+            y+=e
+    return y.strip("-")
+
+
+def todatetime1(x):
+    if x != x:
+        return np.nan
+    try: return datetime.strptime(x,"%Y-%m-%d")
+    except: return np.nan
 
 
 pattern_age = "\d{1,}"
@@ -24,14 +60,6 @@ def limpieza_sex(x):
         return "M"
     elif x == "F":
         return "F"
-    else:
-        return np.nan
-
-
-def limpieza_year(x):
-    if type(x) == float and x > 1700:
-        x=int(x)
-        return str(x)
     else:
         return np.nan
 
@@ -87,40 +115,6 @@ def limpieza_type(x):
         return np.nan
 
 
-def limpieza_meses(x):
-    meses = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"]
-    x = str(x)
-    for i in range(12):
-        if meses[i] in x.lower():
-            if i <9:return "0"+str(i+1)
-            else: return str(i+1)
-    return np.nan
-
-
-pattern_dias1 = "\d{1,2}-"
-pattern_dias2 =  "\.\d{2}\."
-def limpieza_dias(x):
-    x = str(x)
-    if len(re.findall(pattern_dias1,x)) != 0:
-        day = int(re.findall(pattern_dias1,x)[0][:-1])
-        if day<10 and day>0:
-            return "0"+str(day)
-        if day<32 and day>9:
-            return str(day)
-        else:
-            return np.nan
-    elif len(re.findall(pattern_dias2,x)) != 0:
-        day = int(re.findall(pattern_dias2,x)[0][1:3])
-        if day<10 and day>0:
-            return "0"+str(day)
-        if day<32 and day>9:
-            return str(day)
-        else:
-            return np.nan
-    else:
-        return np.nan
-
-
 species_dict={
     "whitetip" : "whitetip reef shark",
     "whtietip" : "whitetip reef shark",
@@ -155,6 +149,7 @@ species_dict={
     "salmon" : "salmon shark",
     "sevengill " : "sevengill  shark"
 }
+
 
 def limpieza_species(x):
     if x != x:
